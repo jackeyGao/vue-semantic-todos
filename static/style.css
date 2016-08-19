@@ -1,0 +1,36 @@
+.monospaced {
+	font-family: Courier New;
+}
+
+.edit {
+    	display: none;
+}
+
+div.editing .edit {
+	display: block;
+}
+
+div.editing .checkbox {
+	display: none;
+}
+
+div .remove {
+	display: none;
+}
+
+div .remove:hover {
+	display: block;
+}
+
+div .list .item:hover .remove {
+	display: block;
+}
+
+.clear:hover {
+	text-decoration: underline;
+	color: #777;
+}
+
+.intro {
+    text-align: center;
+}

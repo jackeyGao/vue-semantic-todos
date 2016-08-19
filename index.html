@@ -1,0 +1,78 @@
+<html data-framework="vue">
+  <head>
+    <meta charset="utf-8" />
+    <title>TODOS - A simple task manager</title>
+    <link href="/static/semantic.min.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+  </head>
+  <body>
+  	<div id="todos" class="ui left aligned centered grid">
+  	  <div class="eight wide column" style="background: #F3F3F4; min-width: 650px; min-height: 100%;">
+  	  	<h1 class="ui centered grey header" style="margin-top: 80px;font-size: 5em;">
+            <span class="monospaced orange text">TODO</span>s
+          </h1>
+  	    <div class="ui stacked segment" style="padding: 14px; margin-bottom: 80px;">
+          <div class="ui fluid right action input">
+            <input type="text" placeholder="接下来做点什么?" 
+            	v-model="newTitle"
+            	autofocus autocomplete="off"
+            	@keyup.enter="addTask">
+            <button class="ui teal icon button" 
+            	@click="addTask">
+              <i class="plus icon"></i>
+            </button>
+          </div>
+          
+          <div class="ui huge middle aligned divided selection list">
+            <div class="item" v-for="task in filterTasks" :class="{ editing: task == editedTask }">
+              <div class="right floated content">
+                <i class="red remove icon" @click='removeTask(task);'></i>
+              </div>
+              <div class="content" @dblclick="editTask(task)">
+                <div class="ui checkbox" >
+                  <input type="checkbox" name="example" v-model="task.completed">
+                  <label class="header"><span class="grey text">{{ task.title }}</span></label>
+                </div>
+           		<div class="ui mini transparent input">
+                	<input class="edit" type="text" 
+                		v-model="task.title"
+                		v-task-focus="task == editedTask"
+                		@blur="saveEdit(task)"
+                		@keyup.enter="saveEdit(task)"
+                		@keyup.esc="cancelEdit(task)" >
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="ui green divider" v-show="tasks.length"></div>
+          <div class="ui grid" v-show="tasks.length">
+            <div class="four wide column">
+              <span class="grey text">
+              	<span class="green text" v-text="remaining"> </span><span class="grey text"> {{ remaining | pluralize 'item' }}  left</span>
+              </span>
+            </div>
+            <div class="eight wide column" style="padding: 0px;">
+              <div class="ui mini secondary menu" style="margin-top: 5px;">
+                <a @click="filterTask('all')" class="item" :class="{ active: visibility == 'all' }" >All</a>
+                <a @click="filterTask('active')" class="item" :class="{ active: visibility == 'active' }">Active</a>
+                <a @click="filterTask('completed')" class="item" :class="{ active: visibility == 'completed' }">Completed</a>
+              </div>
+		    </div>
+		    <div class="four wide column">
+		      <a class="clear" href="#" @click="removeCompleted($event)"><span class="red text">Clear completed</span></a>
+		    </div>
+		  </div>
+        </div>
+        <div class="intro monospaced" style="position: absolute; bottom: 0; left: 0; right: 0; margin: auto auto;">
+		  <span class="grey text">Simple task manager.</br> Double click can be edit it.</span>
+		  </br>
+		  <span class="grey text">Power by <a href="http://vue.org.cn"><span class="green text">vue.js</span></a></span>
+		</div>
+      </div>
+    </div>
+  </body>
+  <script src="/static/js/vue.js"></script>
+  <script src="/static/app.js"></script>
+</html>
+
