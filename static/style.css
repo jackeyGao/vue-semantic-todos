@@ -34,3 +34,9 @@ div .list .item:hover .remove {
 .intro {
     text-align: center;
 }
+
+.intro span {
+    color: #BFBFBF;
+    font-style:italic;
+    font-family: Courier,Quantico,"Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,"微软雅黑",sans-serif!important;
+}

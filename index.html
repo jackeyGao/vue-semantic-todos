@@ -1,17 +1,18 @@
 <html data-framework="vue">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=650px, initial-scale=1, maximum-scale=1">
     <title>TODOS - A simple task manager</title>
     <link href="/static/semantic.min.css" rel="stylesheet">
     <link href="/static/style.css" rel="stylesheet">
   </head>
   <body>
   	<div id="todos" class="ui left aligned centered grid">
-  	  <div class="eight wide column" style="background: #F3F3F4; min-width: 650px; min-height: 100%;">
+  	  <div class="column" style="background: #F3F3F4; min-width: 650px; min-height: 100%; padding: 0px 28px;">
   	  	<h1 class="ui centered grey header" style="margin-top: 80px;font-size: 5em;">
-            <span class="monospaced orange text">TODO</span>s
-          </h1>
-  	    <div class="ui stacked segment" style="padding: 14px; margin-bottom: 80px;">
+          <span class="monospaced orange text">TODO</span>s
+        </h1>
+  	    <div class="ui stacked segment" style="padding: 14px; margin-bottom: 120px;">
           <div class="ui fluid right action input">
             <input type="text" placeholder="接下来做点什么?" 
             	v-model="newTitle"
@@ -64,10 +65,10 @@
 		    </div>
 		  </div>
         </div>
-        <div class="intro monospaced" style="position: absolute; bottom: 0; left: 0; right: 0; margin: auto auto;">
-		  <span class="grey text">Simple task manager.</br> Double click can be edit it.</span>
+        <div class="intro" style="position: absolute; bottom: 0; left: 0; right: 0; margin: auto auto;">
+		  <span class="text">Simple task manager.</br> Double click to edit a task </br>Written by <a href="https://github.com/jackeyGao/"><span class="green text">JackeyGao</span></a></span>
 		  </br>
-		  <span class="grey text">Power by <a href="http://vue.org.cn"><span class="green text">vue.js</span></a></span>
+		  <span class="text">Based on <a href="http://vue.org.cn"><span class="green text">vue.js</span></a> </br> + <a href="http://vue.org.cn"><span class="green text">Semantic-UI</span></a></span>
 		</div>
       </div>
     </div>
