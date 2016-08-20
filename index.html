@@ -48,20 +48,20 @@
           </div>
           <div class="ui green divider" v-show="tasks.length"></div>
           <div class="ui grid" v-show="tasks.length">
-            <div class="four wide column">
+            <div class="three wide column">
               <span class="grey text">
-              	<span class="green text" v-text="remaining"> </span><span class="grey text"> {{ remaining | pluralize 'item' }}  left</span>
+              	<span class="green text" v-text="remaining"> </span><span class="grey text"> left</span>
               </span>
             </div>
             <div class="eight wide column" style="padding: 0px;">
-              <div class="ui mini secondary menu" style="margin-top: 5px;">
+              <div class="ui mini secondary menu" style="margin-top: 8px;">
                 <a @click="filterTask('all')" class="item" :class="{ active: visibility == 'all' }" >All</a>
                 <a @click="filterTask('active')" class="item" :class="{ active: visibility == 'active' }">Active</a>
                 <a @click="filterTask('completed')" class="item" :class="{ active: visibility == 'completed' }">Completed</a>
               </div>
 		    </div>
-		    <div class="four wide column">
-		      <a class="clear" href="#" @click="removeCompleted($event)"><span class="red text">Clear completed</span></a>
+		    <div class="five wide column">
+		      <a class="clear" href="#" @click="removeCompleted($event)"><span class="red text">Clear</span></a>
 		    </div>
 		  </div>
         </div>

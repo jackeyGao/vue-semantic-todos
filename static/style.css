@@ -26,6 +26,10 @@ div .list .item:hover .remove {
 	display: block;
 }
 
+.clear {
+    float: right;
+}
+
 .clear:hover {
 	text-decoration: underline;
 	color: #777;
